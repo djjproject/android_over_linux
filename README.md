@@ -1,1 +1,2 @@
-# android_over_linux
+# android_over_linux : Configuration file repository
+
