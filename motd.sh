@@ -16,5 +16,5 @@ S_FREE=$(cat /proc/meminfo | grep SwapFree | awk '{print $2}')
 echo "MEM	: `expr $M_TOTAL / 1024 - $M_FREE / 1024`MB / `expr $M_TOTAL / 1024`MB	SWAP	: `expr $S_TOTAL / 1024 - $S_FREE / 1024`MB / `expr $S_TOTAL / 1024`MB"
 echo ""
 echo "<NETWORK>"
-echo "ETH	: `ip addr show | grep eth0 | grep inet | grep brd | awk '{print $2}' | awk -F/ '{print $1}'`		WIFI	: `ip addr show | grep wlan0 | grep inet | grep brd | awk '{print $2}' | awk -F/ '{print $1}'`"
+hostname -I
 echo ""

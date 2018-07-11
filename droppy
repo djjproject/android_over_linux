@@ -1,0 +1,44 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          droppy
+# Required-Start:    $network $remote_fs $local_fs
+# Required-Stop:     $network $remote_fs $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: droppy
+# Description:       droppy , initscript by djjproject
+### END INIT INFO
+
+do_start() {
+    if [ -z "`pidof droppy`" ]; then
+	echo "starting droppy..."
+    	/usr/bin/env droppy start -d -c /etc/droppy -f /mnt
+    else
+	echo "already running..."
+    fi
+}
+
+do_stop() {
+    kill -9 `pidof droppy`
+    echo "droppy stopped..."
+}
+
+case "$1" in
+  start)
+    do_start
+  ;;
+  stop)
+    do_stop
+  ;;
+  restart)
+    do_stop
+    do_start
+  ;;
+  *)
+    echo "Usage: "$1" {start|stop|restart}"
+    exit 1
+  ;;
+esac
+
+exit 0
