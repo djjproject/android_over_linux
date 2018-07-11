@@ -11,12 +11,8 @@
 ### END INIT INFO
 
 do_start() {
-    /etc/init.d/hostname.sh start
-    sysctl --system
-}
-
-do_stop() {
-
+    su root -c "/etc/init.d/hostname.sh start"
+    su root -c "sysctl --system"
 }
 
 case "$1" in
@@ -24,9 +20,10 @@ case "$1" in
     do_start
   ;;
   stop)
-    do_stop
+
   ;;
   restart)
+
   ;;
   *)
     echo "Usage: "$1" {start|stop|restart}"
