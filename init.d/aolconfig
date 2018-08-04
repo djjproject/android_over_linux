@@ -1,18 +1,32 @@
 #!/bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          androidoverlinux init
-# Required-Start:    $remote_fs $all
-# Required-Stop:     $remote_fs $all
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: androidoverlinux init script
-# Description:       initscript by djjproject
+# Provides:          androidoverlinux config
+# Required-Start:    hostname $local_fs
+# Required-Stop:     
+# Default-Start:     1 2 3 4 5
+# Default-Stop:      
+# Short-Description: androidoverlinux config script
+# Description:       config by djjproject
 ### END INIT INFO
 
 do_start() {
-    su root -c "/etc/init.d/hostname.sh start"
-    su root -c "sysctl --system"
+    # AOL INIT SCRIPT
+    rm /var/lib/plexmediaserver/Plex\ Media\ Server/plexmediaserver.pid
+    mkdir /dev/net
+    ln -s /dev/tun /dev/net/tun
+    ln -s /dev/block/* /dev
+
+    # disk uuid mount
+    ls -1 /mnt/media_rw/ > /dev/diskname
+    blkid | grep sd | sed -n 's/.*UUID=\"\([^\"]*\)\".*/\1/p' > /dev/uuidname
+    paste /dev/diskname /dev/uuidname > /dev/automount
+
+    cat /dev/automount | while read block uuid
+    do
+        mkdir -p '/mnt/media_rw/by-uuid/'$uuid
+        mount -o bind '/mnt/media_rw/'$block '/mnt/media_rw/by-uuid/'$uuid
+    done
 }
 
 case "$1" in
