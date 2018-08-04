@@ -1,0 +1,17 @@
+#!/bin/bash
+PARTITION=$1
+umount -l '/storage/'$PARTITION > /dev/null 2>&1		# umount /storage/sda1
+umount -l '/mnt/runtime/read/'$PARTITION > /dev/null 2>&1	# umount /mnt/runtime/read/sda1
+umount -l '/mnt/runtime/write/'$PARTITION > /dev/null 2>&1	# umount /mnt/runtime/write/sda1
+umount -l '/mnt/runtime/default/'$PARTITION > /dev/null 2>&1	# umount /mnt/runtime/default/sda1
+umount -l '/mnt/media_rw/'$PARTITION > /dev/null 2>&1		# umount /mnt/media_rw/sda1
+sleep 2 							# while error, sleep 2 sec
+umount -l '/mnt/media_rw/'$PARTITION > /dev/null 2>&1		# one more chekit ! umount /mnt/media_rw/sda1
+UUID=`lsblk '/dev/'$PARTITION -o UUID | grep -v UUID`
+umount -l '/mnt/by-uuid/'$UUID > /dev/null 2>&1
+CHECK=$(df -h | grep $1)
+if [ $CHECK ]; then
+	echo "Unmount Disk Partition : $1, Failed"
+else
+	echo "Unmount Disk Partition : $1, Successful."
+fi
