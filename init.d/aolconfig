@@ -18,15 +18,23 @@ do_start() {
     ln -s /dev/block/* /dev
 
     # disk uuid mount
-    ls -1 /mnt/media_rw/ > /dev/diskname
-    blkid | grep sd | sed -n 's/.*UUID=\"\([^\"]*\)\".*/\1/p' > /dev/uuidname
-    paste /dev/diskname /dev/uuidname > /dev/automount
-
-    cat /dev/automount | while read block uuid
+    lsblk -o KNAME,UUID -r | grep 'sd[a-z][1~99]' > /dev/uuidmount
+    cat /dev/uuidmount | while read block uuid
     do
-        mkdir -p '/mnt/media_rw/by-uuid/'$uuid
-        mount -o bind '/mnt/media_rw/'$block '/mnt/media_rw/by-uuid/'$uuid
+	echo "BLOCK is $block"
+	echo "UUID is $uuid"
+	mkdir -p '/mnt/by-uuid/'$uuid
+	mount -o bind '/mnt/media_rw/'$block '/mnt/by-uuid/'$uuid
     done
+
+    lsblk -o KNAME | grep 'mmcblk1p' > /dev/uuidmount
+    cat /dev/uuidmount | while read block
+    do
+        echo "BLOCK is $block"
+	mkdir -p '/mnt/by-uuid/'$block
+        mount -o bind '/mnt/media_rw/'$block '/mnt/by-uuid/'$block
+    done
+
 }
 
 case "$1" in
