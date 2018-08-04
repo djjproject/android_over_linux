@@ -18,7 +18,7 @@ do_start() {
     ln -s /dev/block/* /dev
 
     # disk uuid mount
-    lsblk -o KNAME,UUID -r | grep 'sd[a-z][1~99]' > /dev/uuidmount
+    lsblk -o KNAME,UUID -r | grep 'sd[a-z][0-9]' > /dev/uuidmount
     cat /dev/uuidmount | while read block uuid
     do
 	echo "BLOCK is $block"
