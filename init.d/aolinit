@@ -1,12 +1,12 @@
 #!/bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          androidoverlinux
+# Provides:          aolinit
 # Required-Start:    $remote_fs $all
 # Required-Stop:     $remote_fs $all
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: androidoverlinux init script
+# Short-Description: aolinit init script
 # Description:       initscript by djjproject
 ### END INIT INFO
 
