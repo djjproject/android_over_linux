@@ -32,6 +32,12 @@ rm /etc/rc0.d/K10halt
 # welcome message patch
 sed -i -e "s/8 jessie/9 stretch/g" /etc/motd
 
+# upmpdcli patch
+wget http://u5pvr.djjproject.com/libupnpp5_armhf.deb
+wget http://u5pvr.djjproject.com/upmpdcli_1.4.0_armhf.deb
+apt-get install --yes --force--yes ./libupnpp5_armhf.deb
+apt-get install --yes --force-yes -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" ./upmpdcli_1.4.0_armhf.deb
+
 # package autoremove
 apt-get autoremove --yes --force-yes
 apt-get autoclean
