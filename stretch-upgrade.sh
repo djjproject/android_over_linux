@@ -33,7 +33,9 @@ rm /etc/rc0.d/K10halt
 sed -i -e "s/8 jessie/9 stretch/g" /etc/motd
 
 # package autoremove
-apt-get autoremove
+apt-get autoremove --yes --force-yes
+apt-get autoclean
+apt-get clean
 
 # alert message
 echo "$(tput setaf 1)Android over Linux Debian 9 Stretch update Finished...$(tput sgr 0)"
