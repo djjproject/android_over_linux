@@ -45,6 +45,8 @@ apt-get autoremove --yes
 apt-get autoclean
 apt-get clean
 
+rm stretch-upgrade.sh
+
 # alert message
 echo "$(tput setaf 1)Android over Linux Debian 9 Stretch update Finished...$(tput sgr 0)"
 echo "$(tput setaf 1)You should reboot Device. may enter "reboot" on terminal.$(tput sgr 0)"
