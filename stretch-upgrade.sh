@@ -48,7 +48,7 @@ apt-get clean
 rm stretch-upgrade.sh
 
 # uuid mount patch
-sed -i -e "s/echo "UUID is $uuid"/uuid=`blkid -s UUID -o value '/dev/'$block`/g" /etc/motd
+sed -i -e "s/echo "UUID is $uuid"/uuid=`blkid -s UUID -o value '/dev/'$block`/g" /etc/init.d/aolconfig
 
 # alert message
 echo "$(tput setaf 1)Android over Linux Debian 9 Stretch update Finished...$(tput sgr 0)"
