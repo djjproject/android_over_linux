@@ -18,11 +18,11 @@ do_start() {
     ln -s /dev/block/* /dev
 
     # disk uuid mount
-    lsblk -o KNAME,UUID -r | grep 'sd[a-z][0-9]' > /dev/uuidmount
-    cat /dev/uuidmount | while read block uuid
+    lsblk -o KNAME -r | grep 'sd[a-z][0-9]' > /dev/uuidmount
+    cat /dev/uuidmount | while read block
     do
 	echo "BLOCK is $block"
-	echo "UUID is $uuid"
+	uuid=`blkid -s UUID -o value '/dev/'$block`
 	mkdir -p '/mnt/by-uuid/'$uuid
 	mount -o bind '/mnt/media_rw/'$block '/mnt/by-uuid/'$uuid
     done
