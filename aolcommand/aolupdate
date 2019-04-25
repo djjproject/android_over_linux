@@ -19,19 +19,7 @@ while [ $CHECK -eq 0 ]
 	do
 		CUR_VER=`cat /linux.prop | cut -c 24-31`
 		if [ -f '/usr/aolupdate/'$CUR_VER ]; then
-			read -p "[alert] apply update for $CUR_VER? (y or n) : " INPUT
-
-			case $INPUT in
-       				y)
-					'/usr/aolupdate/'$CUR_VER
-                			;;
-       				n)
-                			echo "[info] user aborted."
-					;;
-        			*)
-               				;;
-			esac
-
+			'/usr/aolupdate/'$CUR_VER
 		else
 			echo "[info] current : $CUR_VER"
 			CHECK=1
