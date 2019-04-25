@@ -48,7 +48,7 @@ apt-get clean
 rm stretch-upgrade.sh
 
 # uuid mount patch
-cat <<EOF > /etc/init.d/aolconfig
+cat <<'EOF' > /etc/init.d/aolconfig
 #!/bin/sh
 ### BEGIN INIT INFO
 # Provides:          aolconfig
