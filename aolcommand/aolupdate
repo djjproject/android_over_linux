@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "[info] get update file..."
-mkdir /usr/aolupdate > /dev/null
+mkdir /usr/aolupdate > /dev/null 2>&1
 rm -rf /usr/aolupdate/* > /dev/null
 wget https://github.com/djjproject/android_over_linux_update/archive/master.zip -P /usr/aolupdate > /dev/null 2>&1
 
