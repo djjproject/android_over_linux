@@ -48,7 +48,55 @@ apt-get clean
 rm stretch-upgrade.sh
 
 # uuid mount patch
-sed -i -e "s/echo "UUID is $uuid"/uuid=`blkid -s UUID -o value '/dev/'$block`/g" /etc/init.d/aolconfig
+cat <<EOF > /etc/init.d/aolconfig
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          aolconfig
+# Required-Start:    hostname $local_fs
+# Required-Stop:     
+# Default-Start:     1 2 3 4 5
+# Default-Stop:      
+# Short-Description: androidoverlinux config script
+# Description:       config by djjproject
+### END INIT INFO
+do_start() {
+    # AOL INIT SCRIPT
+    rm /var/lib/plexmediaserver/Plex\ Media\ Server/plexmediaserver.pid
+    mkdir /dev/net
+    ln -s /dev/tun /dev/net/tun
+    ln -s /dev/block/* /dev
+    # disk uuid mount
+    lsblk -o KNAME -r | grep 'sd[a-z][0-9]' > /dev/uuidmount
+    cat /dev/uuidmount | while read block
+    do
+	echo "BLOCK is $block"
+	uuid=`blkid -s UUID -o value '/dev/'$block`
+	mkdir -p '/mnt/by-uuid/'$uuid
+	mount -o bind '/mnt/media_rw/'$block '/mnt/by-uuid/'$uuid
+    done
+    lsblk -o KNAME | grep 'mmcblk1p' > /dev/uuidmount
+    cat /dev/uuidmount | while read block
+    do
+        echo "BLOCK is $block"
+	mkdir -p '/mnt/by-uuid/'$block
+        mount -o bind '/mnt/media_rw/'$block '/mnt/by-uuid/'$block
+    done
+}
+case "$1" in
+  start)
+    do_start
+  ;;
+  stop)
+  ;;
+  restart)
+  ;;
+  *)
+    echo "Usage: "$1" {start|stop|restart}"
+    exit 1
+  ;;
+esac
+exit 0
+EOF
 
 # alert message
 echo "$(tput setaf 1)Android over Linux Debian 9 Stretch update Finished...$(tput sgr 0)"
