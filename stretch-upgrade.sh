@@ -32,6 +32,9 @@ rm /etc/rc0.d/K10halt
 # welcome message patch
 sed -i -e "s/8 jessie/9 stretch/g" /etc/motd
 
+# version command patch
+sed -i -e "s/GNU/Linux Debian 8 jessie/GNU/Linux Debian 9 stretch/g" /usr/bin/version
+
 # upmpdcli patch
 wget http://u5pvr.djjproject.com/libupnpp5_armhf.deb
 wget http://u5pvr.djjproject.com/upmpdcli_1.4.0_armhf.deb
