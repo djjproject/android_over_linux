@@ -1,0 +1,3 @@
+adb disconnect > /dev/null
+adb remount
+mount -o remount rw /vendor
