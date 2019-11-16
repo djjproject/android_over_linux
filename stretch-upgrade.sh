@@ -1,18 +1,16 @@
 #!/bin/bash
 
 # update source list
-cat <<EOF > /etc/apt/sources.list
+    cat <<'EOF' > /etc/apt/sources.list
 # debian stretch repo
-deb http://ftp.kr.debian.org/debian/ stretch main contrib non-free
-deb-src http://ftp.kr.debian.org/debian/ stretch main contrib non-free
-
+deb http://httpredir.debian.org/debian/ stretch main contrib non-free
+deb-src http://httpredir.debian.org/debian/ stretch main contrib non-free
 # debian stretch-backports repo
-deb http://ftp.kr.debian.org/debian stretch-backports main contrib non-free
-deb-src http://ftp.kr.debian.org/debian stretch-backports main contrib non-free
-
-# plexmediaserver repo
-deb https://dev2day.de/pms/ stretch main
-
+deb http://httpredir.debian.org/debian stretch-backports main contrib non-free
+deb-src http://httpredir.debian.org/debian stretch-backports main contrib non-free
+# debian stretch-updates repo
+deb http://httpredir.debian.org/debian stretch-updates main contrib non-free
+deb-src http://httpredir.debian.org/debian stretch-updates main contrib non-free
 EOF
 
 # apt update and upgrade, upgrade
