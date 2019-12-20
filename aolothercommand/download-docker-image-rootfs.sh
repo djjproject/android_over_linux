@@ -343,7 +343,8 @@ fi
 
 echo "Download of layers into '$dir' complete."
 mkdir $origin_dir
+base_dir=`basename $origin_dir`
 cd $dir
-find . -type f -iname "*.tar" -print0 -execdir  tar xf {} -C ../../$origin_dir \; -delete > /dev/null 2>&1
+find . -type f -iname "*.tar" -print0 -execdir  tar xf {} -C ../../$base_dir \; -delete > /dev/null 2>&1
 rm -rf $dir
-echo "Download of images into '$origin_dir' complete."
+echo "Extract RootFS into '$origin_dir' complete."
