@@ -9,6 +9,7 @@ function output {
 
 # make backup android samba service.
 output "Make backup for android samba service..."
+system-rw
 mv /system/bin/smbd /system/bin/smbd_bak
 mv /system/bin/nmbd /system/bin/nmbd_bak
 
