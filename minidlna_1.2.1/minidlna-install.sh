@@ -20,7 +20,7 @@ wget https://github.com/djjproject/android_over_linux/raw/master/minidlna_1.2.1/
 wget https://github.com/djjproject/android_over_linux/raw/master/minidlna_1.2.1/minidlna.conf -O /etc/minidlna.conf
 
 output "fix permissions..."
-chmod a+x /usr/local/sbin/minidlnad
+chmod a+x /usr/sbin/minidlnad
 
 output "reindexing media files..."
 service minidlna start
