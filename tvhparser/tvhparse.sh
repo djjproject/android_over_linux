@@ -34,7 +34,7 @@ do
 	URL=http://localhost:19981/stream/service/$TUNER
 	CHNAME=$(cat $channel | jq .channelname)
 
-	FFURL="pipe://ffmpeg -loglevel quiet -i "$URL" -c copy -f mpegts -tune zerolatency pipe:1"	
+	FFURL="pipe://ffmpeg -loglevel quiet -i "$URL" -metadata service_provider=u5live -metadata service_name="$CHNAME" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1"	
 	if [ $CHNAME != "null" ]; then
 		echo -e "$CHNAME \n$FFURL\n"
 		if [[ "${TUNER}" = *"LGDT3305"* ]]; then

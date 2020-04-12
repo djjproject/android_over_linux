@@ -1,25 +1,25 @@
 #EXTM3U
 #EXTINF:-1,"MBC"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306123000000_0001 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306123000000_0001 -metadata service_provider=u5live -metadata service_name="MBC" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"KBS1"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306129000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306129000000_0002 -metadata service_provider=u5live -metadata service_name="KBS1" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"SBS"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306135000000_0001 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306135000000_0001 -metadata service_provider=u5live -metadata service_name="SBS" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"KBS2"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306141000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306141000000_0002 -metadata service_provider=u5live -metadata service_name="KBS2" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"EBS1"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306147000000_0001 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306147000000_0001 -metadata service_provider=u5live -metadata service_name="EBS1" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"EBS2"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306147000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306147000000_0002 -metadata service_provider=u5live -metadata service_name="EBS2" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"OBS"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306153000000_0001 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306153000000_0001 -metadata service_provider=u5live -metadata service_name="OBS" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"noname-225-2"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306225000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306225000000_0002 -metadata service_provider=u5live -metadata service_name="noname-225-2" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"noname-237-2"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306237000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306237000000_0002 -metadata service_provider=u5live -metadata service_name="noname-237-2" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"noname-249-2"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306249000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306249000000_0002 -metadata service_provider=u5live -metadata service_name="noname-249-2" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"noname-261-2"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306261000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT3306261000000_0002 -metadata service_provider=u5live -metadata service_name="noname-261-2" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
 #EXTINF:-1,"noname-57-2"
-pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT330657000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter11_Hisilcon_LGDT330657000000_0002 -metadata service_provider=u5live -metadata service_name="noname-57-2" -c copy -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1
