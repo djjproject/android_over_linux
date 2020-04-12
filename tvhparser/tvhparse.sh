@@ -49,4 +49,4 @@ do
 done
 
 output "## make m3u finished..."
-#rm -rf $WORK_DIR
+rm -rf $WORK_DIR
