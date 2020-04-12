@@ -39,10 +39,10 @@ do
 		echo -e "$CHNAME \n$FFURL\n"
 		if [[ "${TUNER}" = *"LGDT3305"* ]]; then
 			echo "#EXTINF:-1,$CHNAME" >> $CUR_DIR/tvh_3305.m3u
-			echo "$URL" >> $CUR_DIR/tvh_3305.m3u
+			echo "$FFURL" >> $CUR_DIR/tvh_3305.m3u
 		else
 			echo "#EXTINF:-1,$CHNAME" >> $CUR_DIR/tvh_3306.m3u
-			echo "$URL" >> $CUR_DIR/tvh_3306.m3u
+			echo "$FFURL" >> $CUR_DIR/tvh_3306.m3u
 
 		fi
 	fi
