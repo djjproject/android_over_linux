@@ -1,0 +1,24 @@
+#EXTINF:-1,"MBC"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305123000000_0001 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"KBS1"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305129000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"SBS"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305135000000_0001 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"KBS2"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305141000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"EBS1"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305147000000_0001 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"EBS2"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305147000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"OBS"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305153000000_0001 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"noname-225-2"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305225000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"noname-237-2"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305237000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"noname-249-2"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305249000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"noname-261-2"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT3305261000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
+#EXTINF:-1,"noname-57-2"
+pipe://ffmpeg -loglevel quiet -i http://localhost:19981/stream/service/_dev_dvb_adapter6_Hisilcon_LGDT330557000000_0002 -c copy -f mpegts -tune zerolatency pipe:1
