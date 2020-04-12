@@ -23,9 +23,8 @@ else
 fi
 
 output "## make m3u file..."
-
-rm $CUR_DIR/tvh_3305.m3u > /dev/null 2>&1
-rm $CUR_DIR/tvh_3306.m3u > /dev/null 2>&1
+echo "#EXTM3U" > $CUR_DIR/tvh_3305.m3u
+echo "#EXTM3U" > $CUR_DIR/tvh_3306.m3u
 
 TRANSPORT=$WORK_DIR/tvheadend/dvbtransports
 
