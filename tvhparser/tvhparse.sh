@@ -37,13 +37,12 @@ do
 	FFURL="pipe://ffmpeg -loglevel quiet -i "$URL" -c copy -f mpegts -tune zerolatency pipe:1"	
 	if [ $CHNAME != "null" ]; then
 		echo -e "$CHNAME \n$FFURL\n"
-		echo "TUNER : $TUNER"
 		if [[ "${TUNER}" = *"LGDT3305"* ]]; then
 			echo "#EXTINF:-1,$CHNAME" >> $CUR_DIR/tvh_3305.m3u
-			echo "$FFURL" >> $CUR_DIR/tvh_3305.m3u
+			echo "$URL" >> $CUR_DIR/tvh_3305.m3u
 		else
 			echo "#EXTINF:-1,$CHNAME" >> $CUR_DIR/tvh_3306.m3u
-			echo "$FFURL" >> $CUR_DIR/tvh_3306.m3u
+			echo "$URL" >> $CUR_DIR/tvh_3306.m3u
 
 		fi
 	fi
