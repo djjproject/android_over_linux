@@ -31,7 +31,7 @@ TRANSPORT=$WORK_DIR/tvheadend/dvbtransports
 for channel in $TRANSPORT/_dev_dvb*/*
 do
 	TUNER=$(basename $channel)
-	URL=http://localhost:19981/stream/service/$TUNER
+	URL=http://localhost:19981/stream/service/$TUNER?profile=pass
 	CHNAME=$(cat $channel | jq .channelname)
 
 	FFURL="pipe://ffmpeg -loglevel quiet -i "$URL" -metadata service_provider=u5live -metadata service_name="$CHNAME" -c:v copy -c:a aac -b:a 128k -f mpegts -tune zerolatency pipe:1"	
