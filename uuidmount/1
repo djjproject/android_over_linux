@@ -1,0 +1,2 @@
+umount: /mnt/by-uuid/WINACTIVATE.bat: not mounted
+umount: 2: mountpoint not found
