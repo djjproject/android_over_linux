@@ -26,6 +26,9 @@ rm -rf ~/.vim
 rm -rf ~/adbkey
 rm -rf ~/adbkey.pub
 rm -rf ~/.bash_history
+rm -rf ~/.Xauthority
+rm -rf ~/.selected_editor
+rm -rf ~/.wget-hsts
 
 echo "clean tmp..."
 rm -rf /tmp/*
