@@ -23,6 +23,8 @@ rm -rf ~/.local
 rm -rf ~/.nano
 rm -rf ~/.ssh
 rm -rf ~/.vim
+rm -rf ~/adbkey
+rm -rf ~/adbkey.pub
 
 echo "clean tmp..."
 rm -rf /tmp/*
