@@ -25,6 +25,7 @@ rm -rf ~/.ssh
 rm -rf ~/.vim
 rm -rf ~/adbkey
 rm -rf ~/adbkey.pub
+rm -rf ~/.bash_history
 
 echo "clean tmp..."
 rm -rf /tmp/*
