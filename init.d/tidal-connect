@@ -1,0 +1,66 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          tidal-connect
+# Required-Start:    $remote_fs $all
+# Required-Stop:     $remote_fs $all
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: tidal-connect
+# Description:       tidal-connect
+### END INIT INFO
+
+
+DESC="tidal-connect"
+NAME=tidal-connect
+PIDFILE=/var/run/$NAME.pid
+RUN_AS=root
+
+d_start() {
+    start-stop-daemon --start --quiet --background --make-pidfile --pidfile $PIDFILE --chuid $RUN_AS \
+		--exec /usr/tidal-connect/bin/tidal_connect_application -- \
+		--tc-certificate-path "/usr/tidal-connect/id_certificate/IfiAudio_ZenStream.dat" \
+		--netif-for-deviceid eth0 \
+		-f "U5MINI Streamer" \
+		--codec-mpegh true \
+		--codec-mqa true \
+		--model-name "U5MINI Streamer" \
+		--disable-app-security false \
+		--disable-web-security false \
+		--enable-mqa-passthrough true \
+		--playback-device "SMSL USB AUDIO: Audio (hw:2,0)" \
+		--log-level 3
+}
+
+d_stop() {
+    start-stop-daemon --stop --quiet --pidfile $PIDFILE
+    if [ -e $PIDFILE ]
+        then rm $PIDFILE
+    fi
+}
+
+case $1 in
+    start)
+    echo -n "Starting $DESC: $NAME"
+    d_start
+    echo "."
+    ;;
+    stop)
+    echo -n "Stopping $DESC: $NAME"
+    d_stop
+    echo "."
+    ;;
+    restart)
+    echo -n "Restarting $DESC: $NAME"
+    d_stop
+    sleep 1
+    d_start
+    echo "."
+    ;;
+    *)
+    echo "usage: $NAME {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0
